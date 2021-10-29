@@ -10,8 +10,8 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>task-first</module>
         <module>task-zero</module>
+        <module>task-first</module>
         <module>task-second</module>
     </modules>
 </project>
