@@ -6,13 +6,11 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class ContentHandlerImplTest {
-    private NumberFormatException exception;
-    ContentHandler contentHandler;
+    private ContentHandler contentHandler;
 
     @Before
     public void setUp() throws Exception {
-       contentHandler = new ContentHandlerImpl();
-
+        contentHandler = new ContentHandlerImpl();
     }
 
     @Test
@@ -37,11 +35,11 @@ public class ContentHandlerImplTest {
 
     @Test
     public void processedIsNull() {
-        Assert.assertThrows(NumberFormatException.class, () ->  contentHandler.process(null));
+        Assert.assertThrows(NumberFormatException.class, () -> contentHandler.process(null));
     }
 
     @Test
     public void processedIsAbc() {
-        Assert.assertThrows(NumberFormatException.class, () ->  contentHandler.process("Abc"));
+        Assert.assertThrows(NumberFormatException.class, () -> contentHandler.process("Abc"));
     }
 }

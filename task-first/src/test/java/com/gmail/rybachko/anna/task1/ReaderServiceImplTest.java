@@ -5,7 +5,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class ReaderServiceImplTest {
-    ReaderService readerService;
+    private ReaderService readerService;
 
     @Before
     public void setUp() throws Exception {
@@ -14,6 +14,6 @@ public class ReaderServiceImplTest {
 
     @Test
     public void getReaderIs() {
-      Assert.assertNull(readerService.getReader("Abc"));
+        Assert.assertNull(readerService.getReader("Abc"));
     }
 }
