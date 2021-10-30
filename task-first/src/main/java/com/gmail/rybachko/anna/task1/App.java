@@ -13,7 +13,7 @@ public class App {
         System.out.print("Введите путь к файлу: ");
         String pathFile = in.nextLine();
         App app = new App();
-        FileReader reader = (FileReader) app.readerService.getReader(pathFile);
+        FileReader reader =(FileReader) app.readerService.getReader(pathFile);
         List<String> processed = app.fileHandler.process(reader);
         processed.forEach(System.out::println);
     }

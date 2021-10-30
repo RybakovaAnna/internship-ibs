@@ -2,9 +2,11 @@ package com.gmail.rybachko.anna.task1;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.Reader;
 
 public class ReaderServiceImpl implements ReaderService {
-    public FileReader getReader(String path) {
+
+    public Reader getReader(String path) {
         try {
             return new FileReader(path);
         } catch (FileNotFoundException e) {
