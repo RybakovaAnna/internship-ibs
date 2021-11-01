@@ -13,5 +13,6 @@
         <module>task-zero</module>
         <module>task-first</module>
         <module>task-second</module>
+        <module>task-third</module>
     </modules>
 </project>
