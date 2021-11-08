@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 public class PetrolEngineService implements EngineService {
     @Override
     public String powerUp() {
-        return "Petrol";
+        return "Двигатель работает на бензиновом топливе\n";
     }
 
     @Override

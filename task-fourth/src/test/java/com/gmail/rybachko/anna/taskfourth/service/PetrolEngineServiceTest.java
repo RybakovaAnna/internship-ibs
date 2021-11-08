@@ -16,6 +16,6 @@ public class PetrolEngineServiceTest {
 
     @Test
     public void powerUpPositive() {
-        assertEquals("Petrol", petrolEngineService.powerUp());
+        assertEquals("Двигатель работает на бензиновом топливе\n", petrolEngineService.powerUp());
     }
 }
