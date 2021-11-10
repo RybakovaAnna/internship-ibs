@@ -5,7 +5,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -24,10 +23,10 @@ public class Car {
     private String modelName;
 
     @OneToOne(cascade = CascadeType.ALL)
-    Engine engine;
+    private Engine engine;
 
     @OneToOne(cascade = CascadeType.ALL)
-    SteeringWheel steeringWheel;
+    private SteeringWheel steeringWheel;
 
     @Override
     public String toString() {

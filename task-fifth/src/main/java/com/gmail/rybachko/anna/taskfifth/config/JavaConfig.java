@@ -1,13 +1,12 @@
 package com.gmail.rybachko.anna.taskfifth.config;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.JpaVendorAdapter;
@@ -19,9 +18,9 @@ import javax.sql.DataSource;
 import java.util.Properties;
 
 @Configuration
-@EnableJpaRepositories
-@PropertySource("classpath:application.properties")
 @RequiredArgsConstructor
+@PropertySource("classpath:application.properties")
+@ComponentScan("com.gmail.rybachko.anna.taskfifth")
 public class JavaConfig {
     private final Environment env;
     @Value("${spring.datasource.username}")
