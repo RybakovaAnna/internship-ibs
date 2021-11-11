@@ -1,8 +1,8 @@
 package com.gmail.rybachko.anna.taskfifth.controllers;
 
 import com.gmail.rybachko.anna.taskfifth.exception.EntityNotFoundException;
-import com.gmail.rybachko.anna.taskfifth.jpa.entity.Car;
-import com.gmail.rybachko.anna.taskfifth.jpa.repositories.CarRepository;
+import com.gmail.rybachko.anna.taskfifth.jpa.entity.Gear;
+import com.gmail.rybachko.anna.taskfifth.jpa.repositories.GearRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,29 +17,29 @@ import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/api/car")
-public class CarController {
-    private final CarRepository repository;
+@RequestMapping("/api/gear")
+public class GearController {
+    private final GearRepository repository;
 
     @PostMapping("create")
-    public void create(@RequestBody Car car) {
-        repository.save(car);
+    public void create(@RequestBody Gear gear) {
+        repository.save(gear);
     }
 
     @GetMapping(value = {"read", "read/{id}"})
-    public List<Car> get(@PathVariable(required = false) Long id) {
+    public List<Gear> get(@PathVariable(required = false) Long id) {
         if (Objects.nonNull(id)) {
             return repository.findById(id).stream().collect(Collectors.toList());
         } else {
-            return (List<Car>) repository.findAll();
+            return (List<Gear>) repository.findAll();
         }
     }
 
     @PostMapping("update/{id}")
-    public Car update(@PathVariable Long id, @RequestBody Car car) {
+    public Gear update(@PathVariable Long id, @RequestBody Gear gear) {
         repository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException(id));
-        return repository.save(car);
+        return repository.save(gear);
     }
 
     @PostMapping("delete/{id}")

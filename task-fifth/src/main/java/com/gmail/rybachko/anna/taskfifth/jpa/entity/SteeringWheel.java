@@ -19,5 +19,4 @@ public class SteeringWheel {
     private Long id;
 
     private String nameSteeringWheel;
-
 }

@@ -21,7 +21,7 @@ import java.util.Properties;
 @RequiredArgsConstructor
 @PropertySource("classpath:application.properties")
 @ComponentScan("com.gmail.rybachko.anna.taskfifth")
-public class JavaConfig {
+public class Config {
     private final Environment env;
     @Value("${spring.datasource.username}")
     private String userName;

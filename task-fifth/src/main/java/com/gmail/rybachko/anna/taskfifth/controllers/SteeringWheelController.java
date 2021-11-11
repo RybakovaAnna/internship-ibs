@@ -1,8 +1,10 @@
 package com.gmail.rybachko.anna.taskfifth.controllers;
 
 import com.gmail.rybachko.anna.taskfifth.exception.EntityNotFoundException;
-import com.gmail.rybachko.anna.taskfifth.jpa.entity.Car;
-import com.gmail.rybachko.anna.taskfifth.jpa.repositories.CarRepository;
+import com.gmail.rybachko.anna.taskfifth.jpa.entity.Piston;
+import com.gmail.rybachko.anna.taskfifth.jpa.entity.SteeringWheel;
+import com.gmail.rybachko.anna.taskfifth.jpa.repositories.PistonRepository;
+import com.gmail.rybachko.anna.taskfifth.jpa.repositories.SteeringWheelRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,29 +19,29 @@ import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/api/car")
-public class CarController {
-    private final CarRepository repository;
+@RequestMapping("/api/steeringwheel")
+public class SteeringWheelController {
+    private final SteeringWheelRepository repository;
 
     @PostMapping("create")
-    public void create(@RequestBody Car car) {
-        repository.save(car);
+    public void create(@RequestBody SteeringWheel steeringWheel) {
+        repository.save(steeringWheel);
     }
 
     @GetMapping(value = {"read", "read/{id}"})
-    public List<Car> get(@PathVariable(required = false) Long id) {
+    public List<SteeringWheel> get(@PathVariable(required = false) Long id) {
         if (Objects.nonNull(id)) {
             return repository.findById(id).stream().collect(Collectors.toList());
         } else {
-            return (List<Car>) repository.findAll();
+            return (List<SteeringWheel>) repository.findAll();
         }
     }
 
     @PostMapping("update/{id}")
-    public Car update(@PathVariable Long id, @RequestBody Car car) {
+    public SteeringWheel update(@PathVariable Long id, @RequestBody SteeringWheel steeringWheel) {
         repository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException(id));
-        return repository.save(car);
+        return repository.save(steeringWheel);
     }
 
     @PostMapping("delete/{id}")
