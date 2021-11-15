@@ -22,12 +22,11 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 @Component
 public class JwtProvider {
-
     private final static String BEARER_PREFIX = "Bearer ";
     private final static String KEY = "securesecuresecuresecuresecuresecuresecures";
 
     public String createAccessToken(Authentication authentication) {
-        return BEARER_PREFIX +  Jwts.builder()
+        return BEARER_PREFIX + Jwts.builder()
                 .setSubject(authentication.getName())
                 .claim("authorities", authentication.getAuthorities())
                 .setIssuedAt(new Date())
@@ -37,7 +36,7 @@ public class JwtProvider {
     }
 
     public String createRefreshToken(Authentication authentication) {
-        return BEARER_PREFIX +  Jwts.builder()
+        return BEARER_PREFIX + Jwts.builder()
                 .setSubject(authentication.getName())
                 .claim("authorities", authentication.getAuthorities())
                 .setIssuedAt(new Date())
@@ -59,9 +58,9 @@ public class JwtProvider {
                 .parseClaimsJws(token)
                 .getBody()
                 .get("authorities"))
-                    .stream()
-                    .map(map -> new SimpleGrantedAuthority(map.get("authority")))
-                    .collect(Collectors.toList());
+                .stream()
+                .map(map -> new SimpleGrantedAuthority(map.get("authority")))
+                .collect(Collectors.toList());
 
     }
 
